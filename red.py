@@ -1,22 +1,4 @@
 #!/usr/bin/env python3
-"""SCP-RED - Herramientas de red para terminal.
-
-Uso interactivo (sin argumentos)::
-
-    python3 red.py
-
-Uso por linea de comandos::
-
-    python3 red.py scan --speed
-    python3 red.py ping 1.1.1.1 --tcp 443
-    python3 red.py portscan 192.168.1.1 -p 22,80,443
-    python3 red.py --help
-
-Dos apartados:
-  1) Escaneo inicial (caracteristicas obligatorias + dispositivos).
-  2) Herramientas de red (el resto).
-"""
-
 from __future__ import annotations
 
 import argparse
@@ -44,6 +26,14 @@ from netred import (
     wol,
 )
 
+BANNER1 = r"""
+████████╗██╗  ██╗███████╗    ███████╗███╗   ██╗██████╗
+╚══██╔══╝██║  ██║██╔════╝    ██╔════╝████╗  ██║██╔══██╗
+   ██║   ███████║█████╗      █████╗  ██╔██╗ ██║██║  ██║
+   ██║   ██╔══██║██╔══╝      ██╔══╝  ██║╚██╗██║██║  ██║
+   ██║   ██║  ██║███████╗    ███████╗██║ ╚████║██████╔╝
+   ╚═╝   ╚═╝  ╚═╝╚══════╝    ╚══════╝╚═╝  ╚═══╝╚═════╝
+"""
 BANNER = r"""
                         .@@@@@@@@@@@@@@.
                         @ ...........  @
@@ -70,7 +60,6 @@ BANNER = r"""
             . @  .@@  @@@@@@@@@@@@@@@@@@@@  @@.  @ :
              : #    .@@  .@@@@@@@@@@@@.  @@.    # -
                      .  @@@@.      .@@@@  .
-                         -.          .-
 """
 
 _TOOLS = [
@@ -99,6 +88,7 @@ _TOOLS = [
 
 def _show_banner() -> None:
     print(util.Style.paint(BANNER, util.Style.WHITE, util.Style.BOLD))
+    print(util.Style.paint(BANNER1, util.Style.WHITE, util.Style.BOLD))
     print(util.Style.paint(f"  H  red - v{__import__('netred').__version__}",
                            util.Style.CYAN))
 
@@ -112,7 +102,7 @@ def _prompt(text: str) -> str:
 
 def tools_menu() -> None:
     while True:
-        util.title("APARTADO 2 - Herramientas de red")
+        util.title("A Herramientas de red")
         for i, (name, _) in enumerate(_TOOLS, 1):
             print(f"  {i:>2}) {name}")
         print("   0) Volver")
@@ -128,7 +118,7 @@ def tools_menu() -> None:
             func()
         except KeyboardInterrupt:
             print()
-            util.warn("Operacion cancelada.")
+            util.warn("OPERATION ERR--")
         except Exception as exc:  # pragma: no cover - salvavidas
             util.err(f"Error: {exc}")
 
@@ -137,12 +127,13 @@ def interactive() -> None:
     _show_banner()
     while True:
         print()
-        print(util.Style.paint("  APARTADO 1 - Escaneo inicial", util.Style.BOLD, util.Style.CYAN))
-        print("    1) Escaneo inicial (caracteristicas + dispositivos)")
-        print(util.Style.paint("  APARTADO 2 - Herramientas", util.Style.BOLD, util.Style.CYAN))
-        print("    2) Abrir menu de herramientas")
-        print("    0) Salir")
-        choice = _prompt("  Opcion: ").strip()
+        print(util.Style.paint("ULTIMATE ESCAN", util.Style.BOLD, util.Style.RED))
+        print("    [1] inciar escaneo")
+        print(util.Style.paint("herramientas", util.Style.BOLD, util.Style.CYAN))
+        print("    [2] menu")
+        print(util.Style.paint("#" * 20,util.Style.BOLD, util.Style.GREEN))
+        print("    [0] EXIT")
+        choice = _prompt("  OPTION: ").strip()
         if choice in ("0", "q", ""):
             return
         if choice == "1":
@@ -150,24 +141,21 @@ def interactive() -> None:
                 initial.run_interactive()
             except KeyboardInterrupt:
                 print()
-                util.warn("Escaneo cancelado.")
+                util.warn("ESCAN ERR-R")
             except Exception as exc:  # pragma: no cover
                 util.err(f"Error: {exc}")
         elif choice == "2":
             tools_menu()
         else:
-            util.warn("Opcion invalida.")
+            util.warn("ERR0R")
 
 
-# ---------------------------------------------------------------------------
 # CLI
-# ---------------------------------------------------------------------------
-
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="red.py",
-        description="SCP-RED - herramientas de red para terminal.",
+        description="SCP",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     parser.add_argument("--no-color", action="store_true", help="desactiva el color")
@@ -175,12 +163,19 @@ def build_parser() -> argparse.ArgumentParser:
 
     p = sub.add_parser("scan", help="escaneo inicial (apartado 1)")
     p.add_argument("--speed", action="store_true", help="incluir test de velocidad")
+    p.add_argument("--hide-mac", action="store_true", help="ocultar las MAC de los dispositivos")
+    p.add_argument("--hide-names", action="store_true", help="ocultar los nombres de los dispositivos")
+    p.add_argument("--excel", action="store_true", help="registrar dispositivos en un .xlsx nuevo")
+    p.add_argument("--excel-dir", metavar="DIR", help="carpeta para el Excel (por defecto, actual)")
+    p.add_argument("--excel-file", metavar="ARCHIVO.xlsx", help="ruta concreta del Excel")
     p.add_argument("--export", metavar="ARCHIVO.csv", help="exportar inventario a CSV")
 
     sub.add_parser("info", help="informacion basica del equipo y la red")
     sub.add_parser("upnp", help="escaneo UPnP/DLNA")
     sub.add_parser("bonjour", help="navegador Bonjour/mDNS")
-    sub.add_parser("wifi", help="escaneo Wi-Fi")
+    p = sub.add_parser("wifi", help="escaneo Wi-Fi")
+    p.add_argument("--verify", action="store_true",
+                   help="verifica el mapeo frecuencia -> canal/banda")
     sub.add_parser("speedtest", help="medicion de velocidad")
     sub.add_parser("isp", help="analisis del ISP y ubicacion")
     sub.add_parser("connectivity", help="verificador de conectividad a Internet")
@@ -260,7 +255,10 @@ def main(argv: list[str] | None = None) -> int:
     cmd = args.command
     try:
         if cmd == "scan":
-            initial.run(do_speedtest=args.speed, export=args.export)
+            initial.run(do_speedtest=args.speed, export=args.export,
+                        show_mac=not args.hide_mac, show_names=not args.hide_names,
+                        excel=args.excel, excel_dir=args.excel_dir,
+                        excel_file=args.excel_file)
         elif cmd == "info":
             netinfo.show()
         elif cmd == "upnp":
@@ -268,7 +266,16 @@ def main(argv: list[str] | None = None) -> int:
         elif cmd == "bonjour":
             bonjour.run_menu()
         elif cmd == "wifi":
-            wifi.run_menu()
+            if args.verify:
+                result = wifi.verify_frequency()
+                util.table(["Frecuencia (MHz)", "Canal", "Banda", "OK"],
+                           [[c["freq"], c["canal"], c["banda"],
+                             util.Style.paint("OK", util.Style.GREEN) if c["ok"]
+                             else util.Style.paint("ERROR", util.Style.RED)]
+                            for c in result["cases"]])
+                util.info("Verificacion global: " + ("correcta" if result["ok"] else "con errores"))
+            else:
+                wifi.run_menu()
         elif cmd == "speedtest":
             speedtest.print_result(speedtest.measure())
         elif cmd == "isp":
@@ -355,7 +362,7 @@ def main(argv: list[str] | None = None) -> int:
             return 2
     except KeyboardInterrupt:
         print()
-        util.warn("Interrumpido por el usuario.")
+        util.warn("interruption")
         return 130
     except Exception as exc:  # pragma: no cover - salvavidas
         util.err(f"Error: {exc}")
