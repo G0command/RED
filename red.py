@@ -25,6 +25,14 @@ from netred import (
     wifi,
     wol,
 )
+SECRETBANNER = r"""
+███╗   ██╗███████╗████████╗██╗    ██╗ ██████╗ ██████╗ ██╗  ██╗
+████╗  ██║██╔════╝╚══██╔══╝██║    ██║██╔═══██╗██╔══██╗██║ ██╔╝
+██╔██╗ ██║█████╗     ██║   ██║ █╗ ██║██║   ██║██████╔╝█████╔╝
+██║╚██╗██║██╔══╝     ██║   ██║███╗██║██║   ██║██╔══██╗██╔═██╗
+██║ ╚████║███████╗   ██║   ╚███╔███╔╝╚██████╔╝██║  ██║██║  ██╗
+╚═╝  ╚═══╝╚══════╝   ╚═╝    ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+"""
 
 BANNER1 = r"""
 ████████╗██╗  ██╗███████╗    ███████╗███╗   ██╗██████╗
@@ -89,8 +97,8 @@ _TOOLS = [
 def _show_banner() -> None:
     print(util.Style.paint(BANNER, util.Style.WHITE, util.Style.BOLD))
     print(util.Style.paint(BANNER1, util.Style.WHITE, util.Style.BOLD))
-    print(util.Style.paint(f"  H  red - v{__import__('netred').__version__}",
-                           util.Style.CYAN))
+    #print(util.Style.paint(f"  H  red - v{__import__('netred').__version__}",
+    #                       util.Style.CYAN))
 
 
 def _prompt(text: str) -> str:
