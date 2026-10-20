@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+#
+#https://github.com/G0command/RED.git
 from __future__ import annotations
 
 import argparse
