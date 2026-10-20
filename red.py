@@ -71,25 +71,25 @@ BANNER = r"""
 """
 
 _TOOLS = [
-    ("Info del equipo/red", netinfo.run_menu),
-    ("Watcher (monitor de recursos remotos)", monitor.run_watcher_menu),
-    ("Local-Area Network (dispositivos de la red)", netscan.run_lan_menu),
-    ("Ping (ICMP / TCP / HTTP)", ping.run_ping_menu),
-    ("Traceroute / Visual Traceroute", traceroute.run_menu),
-    ("Port scanner (TCP)", portscan.run_menu),
+    ("info del equipo/red", netinfo.run_menu),
+    ("watcher", monitor.run_watcher_menu),
+    ("localarea network (dispositivos de la red)", netscan.run_lan_menu),
+    ("ping => icmp / tcp / http", ping.run_ping_menu),
+    ("Traceroute", traceroute.run_menu),
+    ("Port scanner [TCP]", portscan.run_menu),
     ("Whois", whois.run_menu),
-    ("UPnP scanner (UPnP/DLNA)", upnp.run_menu),
-    ("Bonjour browser (mDNS)", bonjour.run_menu),
-    ("Wi-Fi scanner", wifi.run_menu),
-    ("Speedtest", speedtest.run_menu),
-    ("Subnet scanner", netscan.run_subnet_menu),
-    ("DNS Lookup (directo e inverso)", dns.run_menu),
-    ("Wake on LAN", wol.run_menu),
-    ("IP Calculator", ipcalc.run_menu),
-    ("Analisis/ubicacion de ISP + conectividad", isp.run_menu),
-    ("Conectar a puertos (navegador/SSH/FTP)", connect.run_menu),
-    ("Inventario de dispositivos y redes", inventory.run_menu),
-    ("Deteccion de intrusos", monitor.run_intruder_menu),
+    ("UPnP scanner", upnp.run_menu),
+    ("Bonjour browser", bonjour.run_menu),
+    ("wifi scanner", wifi.run_menu),
+    ("speedtest", speedtest.run_menu),
+    ("subnet scanner", netscan.run_subnet_menu),
+    ("dns Lookup ", dns.run_menu),
+    ("wake on lan", wol.run_menu),
+    ("calculador IP", ipcalc.run_menu),
+    ("analisis/ubicacion de isp + conectividad", isp.run_menu),
+    ("conexion a puertos => [navegador|ssh|ftp]", connect.run_menu),
+    ("inventario de dispositivos y redes", inventory.run_menu),
+    ("Alerta de intrusos", monitor.run_intruder_menu),
     ("Monitorizacion de red (online/offline)", monitor.run_monitor_menu),
 ]
 
@@ -344,7 +344,7 @@ def main(argv: list[str] | None = None) -> int:
                     dns._print_result(dns.query(args.target, args.type))
         elif cmd == "wol":
             if wol.wake(args.mac, args.broadcast, args.port):
-                util.ok(f"Paquete magico enviado a {args.mac}.")
+                util.ok(f"Paquete magico enviado a {args.mac}")
         elif cmd == "ipcalc":
             data = ipcalc.info(args.network)
             ipcalc.print_info(data)
