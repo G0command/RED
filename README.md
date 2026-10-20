@@ -9,7 +9,6 @@
 ```
 git clone https://github.com/G0command/RED.git
 cd RED
-unzip
 python3 red.py
 ```
 
