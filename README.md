@@ -6,19 +6,19 @@
 </p>
 
 <p align="center">
-	<img src='assets/logo.png' height="200"/>
+	<img src='assets/logo.png'/>
 </p>
 
 [![python version](https://img.shields.io/badge/Python-3.10%2B-brightgreen)](https://www.python.org/downloads/)
 
 # **ACERCA DE RED**
-*El programa RED, cuenta con 2 apartados, tanto un escaneo total como herramientas para complementar:
+_El programa RED, cuenta con 2 apartados, tanto un escaneo total como herramientas para complementar:_
 
-El escaneo ultimate mide y registra la velocidad de bajada y subida de la red así como la identificación de parámetros del punto de acceso (MAC, canal, intensidad, seguridad, tecnología), de la cual, contabiliza los equipos conectados en los momentos de las pruebas, tiene opción de guardado de data en un archivo Excel
+_El escaneo ultimate mide y registra la velocidad de bajada y subida de la red así como la identificación de parámetros del punto de acceso (MAC, canal, intensidad, seguridad, tecnología), de la cual, contabiliza los equipos conectados en los momentos de las pruebas, tiene opción de guardado de data en un archivo excel_
 
-En herramientas, hay mapeo de dispositivos, monitoreo de dispositivos, escaneo de puertos, búsqueda de DNS, ping y supervisión de servicios, análisis avanzado de nombres NetBIOS, UPnP y Bonjour, propiedades y tipos de dispositivos y información básica del equipo y la red*
+_En herramientas, hay mapeo de dispositivos, monitoreo de dispositivos, escaneo de puertos, búsqueda de DNS, ping y supervisión de servicios, análisis avanzado de nombres NetBIOS, UPnP y Bonjour, propiedades y tipos de dispositivos y información básica del equipo y la red_
 
-##**ESCANE ULTIMATE**
+## **ESCANEO ULTIMATE**
 ### APARTADO 1
 
 * AP (SSID)
@@ -40,7 +40,7 @@ En herramientas, hay mapeo de dispositivos, monitoreo de dispositivos, escaneo d
 * Nombre del dispositivo 
 * Estado (online/offline)
 
-#**Herramientas**
+## **Herramientas**
 ### APARTADO 2
 * scan                escaneo inicial (apartado 1)
 * info                informacion basica del equipo y la red
