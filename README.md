@@ -42,29 +42,32 @@ _En herramientas, hay mapeo de dispositivos, monitoreo de dispositivos, escaneo 
 
 ## **Herramientas**
 ### APARTADO 2
-* scan                escaneo inicial (apartado 1)
-* info                informacion basica del equipo y la red
-* upnp                escaneo UPnP/DLNA
-* bonjour             navegador Bonjour/mDNS
-* wifi                escaneo Wi-Fi
-* speedtest           medicion de velocidad
-* isp                 analisis del ISP y ubicacion
-* connectivity        verificador de conectividad a Internet
-* intruders           deteccion de intrusos
-* inventory           inventario de dispositivos
-* macs                mostrar MAC + nombre + fabricante
-* lan                 dispositivos de la red local
-* subnet              escaner de subred
-* ping                ping ICMP/TCP/HTTP
-* trace               traceroute / traceroute visual
-* portscan            escaner de puertos TCP
-* whois               consulta WHOIS
-* dns                 busqueda DNS directa e inversa
-* wol                 Wake on LAN
-* ipcalc              calculadora IP
-* watcher             monitor continuo de recursos remotos
-* monitor             monitoriza dispositivos online/offline
-* connect             conectar a un puerto (navegador/SSH/FTP)
+| HERRAMIENTAS  | INFO                                       |
+| ------------- |:------------------------------------------:|
+| scan          | escaneo inicial (apartado 1)               |
+| info          | informacion basica del equipo y la red     |
+| upnp          | escaneo UPnP/DLNA                          |
+| bonjour       | navegador Bonjour/mDNS                     |
+| wifi          | escaneo wifi                               |
+| speedtest     | medicion de velocidad                      |
+| isp           | analisis del ISP y ubicacion               |
+| connectivity  | verificador de conectividad a internet     |
+| intruders     | deteccion de intrusos                      |
+| inventory     | inventario de dispositivos                 |
+| macs          | mostrar MAC + nombre + fabricante          |
+| lan           | dispositivos de la red local               |
+| subnet        | escaner de subred                          |
+| ping          | ping ICMP/TCP/HTTP                         |
+| trace         | traceroute / traceroute visual             |
+| portscan      | escaner de puertos TCP                     |
+| whois         | consulta WHOIS                             |
+| dns           | busqueda DNS directa e inversa             |
+| wol           | wake on LAN                                |
+| ipcalc        | calculadora IP                             |
+| watcher       | monitor continuo de recursos remotos       |
+| monitor       | monitoriza dispositivos online/offline     |
+| connect       | conectar a un puerto (navegador/SSH/FTP)   |
+
 
 ## **Installation**
 
@@ -102,5 +105,5 @@ $ python3 red.py --help
 
 ### **IMPORTANTE**
 
-**Herramienta dise;ada para propositos educativos**
+**Herramienta dise;ada para propositos educativos y aplicado en entornos insitucionales**
 
