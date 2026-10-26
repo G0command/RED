@@ -165,14 +165,14 @@ def print_summary(summary: dict, show_mac: bool = True) -> None:
     util.kv("Marca/Modelo AP", summary["marca_modelo"])
     util.kv("Fecha / Hora", summary["fecha_hora"])
     util.kv("Red", summary["red"])
-    util.kv("N dispositivos", summary["num_dispositivos"])
-    det = summary.get("deteccion") or {}
-    if det:
-        util.kv("Nombres detectados", f"{det.get('named', 0)}/{det.get('total', 0)}")
-        util.kv("Tipos detectados", f"{det.get('typed', 0)}/{det.get('total', 0)}")
-    if summary.get("monitor"):
-        util.kv("Monitorizacion", f"{summary.get('rounds', 1)} rondas | "
-                f"{det.get('online', 0)} online / {det.get('offline', 0)} offline")
+    util.kv("n dispositivos", summary["num_dispositivos"])
+    #det = summary.get("deteccion") or {}
+    #if det:
+    #    util.kv("Nombres detectados", f"{det.get('named', 0)}/{det.get('total', 0)}")
+    #    util.kv("Tipos detectados", f"{det.get('typed', 0)}/{det.get('total', 0)}")
+    #if summary.get("monitor"):
+    #    util.kv("Monitorizacion", f"{summary.get('rounds', 1)} rondas | "
+    #            f"{det.get('online', 0)} online / {det.get('offline', 0)} offline")
     if summary.get("only_with_mac"):
         util.kv("Filtro", "solo dispositivos con MAC/fabricante")
     down = summary.get("vel_bajada")
