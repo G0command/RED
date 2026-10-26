@@ -98,7 +98,7 @@ $ python3 red.py --help
 
 
 
-### Test:
+### Test ULTIMATE SCAN:
 <p align="center">
 	<img src='figuras/printultimatescan.png'/>
 </p>
