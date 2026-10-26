@@ -69,7 +69,7 @@ _En herramientas, hay mapeo de dispositivos, monitoreo de dispositivos, escaneo 
 | connect       | conectar a un puerto (navegador/SSH/FTP)   |
 
 
-## **Installation**
+## **Instalacion**
 
 - [Python 3](https://www.python.org/downloads/)
 - [Git](https://git-scm.com/downloads)
@@ -80,7 +80,7 @@ $ cd ./RED
 $ python3 red.py
 ```
 
-## **uso y ejemplos**
+## **Uso y ejemplos**
 
 ```
 usage: red.py [-h] [--no-color] {scan,info,upnp,bonjour,wifi,speedtest,isp,connectivity,intruders,inventory,macs,lan,subnet,ping,trace,portscan,whois,dns,wol,ipcalc,watcher,monitor,connect} ...
@@ -98,8 +98,8 @@ $ python3 red.py --help
 
 
 
-### Example results:
-![](assets/example.png)
+### Test:
+![](assets/printultimatescan.png)
 
 
 
