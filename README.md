@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-	<img src='assets/logo.png'/>
+	<img src='figuras/logo.png'/>
 </p>
 
 [![python version](https://img.shields.io/badge/Python-3.10%2B-brightgreen)](https://www.python.org/downloads/)
@@ -99,7 +99,9 @@ $ python3 red.py --help
 
 
 ### Test:
-![](assets/printultimatescan.png)
+<p align="center">
+	<img src='figuras/printultimatescan.png'/>
+</p>
 
 
 
